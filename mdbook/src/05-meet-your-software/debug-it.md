@@ -196,6 +196,15 @@ of the instruction the processor will execute next.
 
 One last trick before we move to something more interesting. Enter the following commands into GDB:
 
+**Bonus tip:** If your execution accidentally runs past your `break main`, you can reset and halt the MCU to ensure the breakpoint is properly hit:
+
+```shell
+(gdb) monitor reset halt
+(gdb) continue
+```
+
+This command resets the microcontroller and halts it at the entry point, guaranteeing that the next `continue` command stops at the intended `main` breakpoint.
+
 ```
 (gdb) monitor reset
 (gdb) c
